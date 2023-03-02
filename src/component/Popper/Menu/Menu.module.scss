@@ -2,7 +2,10 @@
   width: 224px;
 
   .menu-item {
+
     margin-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 

@@ -3,10 +3,13 @@ import classNames from 'classnames/bind';
 import Menu,{MenuItem} from './Menu';
 import routes from '~/config/routes';
 import { HomeActiveIcon, HomeIcon, LiveActiveIcon, LiveIcon, UserGroupActiveIcon, UserGroupIcon } from '~/component/Icons';
+import SugAccount from './SugAccounts';
+
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+  
   return (
     <aside className={cx('wrapper')}>
       <Menu>
@@ -14,6 +17,8 @@ function Sidebar() {
         <MenuItem title='Following' to={routes.following} icon={<UserGroupIcon/>} activeIcon={<UserGroupActiveIcon/>}/>
         <MenuItem title='LIVE' to={routes.live} icon={<LiveIcon/>} activeIcon={<LiveActiveIcon/>}/>
       </Menu>
+      <SugAccount title="Suggested accounts"/>
+      <SugAccount title="Following accounts"/>
     </aside>
   );
 }

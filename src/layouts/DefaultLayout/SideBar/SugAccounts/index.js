@@ -1,2 +1,2 @@
 export {default  }  from './SugAccounts'
-export { default as SugAccountItem} from './SugAccountsItem'
+export { default as SugAccountsItem} from './SugAccountsItem'

@@ -1,4 +1,3 @@
-
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -19,190 +18,72 @@ import image from '~/assets/images';
 
 import Button from '~/component/Button';
 import Menu from '~/component/Popper/Menu';
-import { MessageIcon,UploadIcon } from '~/component/Icons';
+import { MessageIcon, UploadIcon } from '~/component/Icons';
 import Image from '~/component/Image';
 import Search from '../Search';
 import { Link } from 'react-router-dom';
 import routes from '~/config/routes';
 import { useState } from 'react';
 const cx = classNames.bind(styles);
+const languages = [
+    'English',
+    'العربية',
+    'বাঙ্গালি (ভারত)',
+    'Cebuano (Pilipinas)',
+    'Čeština (Česká republika)',
+    'Deutsch',
+    'Ελληνικά (Ελλάδα)',
+    'Español',
+    'Suomi (Suomi)',
+    'Filipino (Pilipinas)',
+    'Français',
+    '(ישראל) עברית',
+    'हिंदी',
+    'Magyar (Magyarország)',
+    'Bahasa Indonesia (Indonesia)',
+    'Italiano (Italia)',
+    '日本語（日本）',
+    'Basa Jawa (Indonesia)',
+    'ខ្មែរ (កម្ពុជា)',
+    '한국어 (대한민국)',
+    'Bahasa Melayu (Malaysia)',
+    'မြန်မာ (မြန်မာ)',
+    'Nederlands (Nederland)',
+    'Polski  (Polska)',
+    'Português (Brasil)',
+    'Română (Romania)',
+    'Русский (Россия)',
+    'Svenska  (Sverige)',
+    'ไทย (ไทย)',
+    'Türkçe (Türkiye)',
+    'Українська (Україна)',
+    'اردو',
+    'Tiếng Việt (Việt Nam)',
+    '简体中文',
+    '繁體中文',
+]
+const listLanguage = languages.map((lang) => {
+    return {
+        code: 'en',
+        type: 'language',
+        title: lang,
+        children: {
+            title: 'Success',
+            data: [
+                {
+                    title: 'Not Working',
+                },
+            ],
+        },
+    }
+})  ;
 const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
         children: {
             title: 'Language',
-            data: [
-                {
-                    code: 'en',
-                    type: 'language',
-                    title: 'English',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Not Working'
-                            }
-                        ]
-                    }
-                       
-                    // can add children here if have another level menu
-                },
-                {
-                    code: 'vi',
-                    type: 'language',
-                    title: 'Tiếng Việt',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Không hoạt động'
-                            }
-                        ]
-                    }
-                },
-                {
-                    code: 'en',
-                    type: 'language',
-                    title: 'English',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Not Working'
-                            }
-                        ]
-                    }
-                       
-                    // can add children here if have another level menu
-                },
-                {
-                    code: 'vi',
-                    type: 'language',
-                    title: 'Tiếng Việt',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Không hoạt động'
-                            }
-                        ]
-                    }
-                },
-                {
-                    code: 'en',
-                    type: 'language',
-                    title: 'English',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Not Working'
-                            }
-                        ]
-                    }
-                       
-                    // can add children here if have another level menu
-                },
-                {
-                    code: 'vi',
-                    type: 'language',
-                    title: 'Tiếng Việt',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Không hoạt động'
-                            }
-                        ]
-                    }
-                },
-                {
-                    code: 'en',
-                    type: 'language',
-                    title: 'English',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Not Working'
-                            }
-                        ]
-                    }
-                       
-                    // can add children here if have another level menu
-                },
-                {
-                    code: 'vi',
-                    type: 'language',
-                    title: 'Tiếng Việt',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Không hoạt động'
-                            }
-                        ]
-                    }
-                },
-                {
-                    code: 'en',
-                    type: 'language',
-                    title: 'English',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Not Working'
-                            }
-                        ]
-                    }
-                       
-                    // can add children here if have another level menu
-                },
-                {
-                    code: 'vi',
-                    type: 'language',
-                    title: 'Tiếng Việt',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Không hoạt động'
-                            }
-                        ]
-                    }
-                },
-                {
-                    code: 'en',
-                    type: 'language',
-                    title: 'English',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Not Working'
-                            }
-                        ]
-                    }
-                       
-                    // can add children here if have another level menu
-                },
-                {
-                    code: 'vi',
-                    type: 'language',
-                    title: 'Tiếng Việt',
-                    children: {
-                        title:'Success',
-                        data:[
-                            {
-                                title:'Không hoạt động'
-                            }
-                        ]
-                    }
-                },
-                
-            ],
+            data:  listLanguage
         },
     },
     { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and help', to: '/feedback' },
@@ -215,31 +96,31 @@ function Header() {
         // xu li khi 1 item trong menu khong co children
         switch (menuItem.type) {
             case 'logOut':
-                setCurrentUser(false)
+                setCurrentUser(false);
                 break;
 
             default:
                 break;
         }
     };
-    const [currentUser,setCurrentUser] = useState(false)
+    const [currentUser, setCurrentUser] = useState(false);
     const userMenu = [
         { icon: <FontAwesomeIcon icon={faUser} />, title: 'View profile', to: '/@hoa' },
         { icon: <FontAwesomeIcon icon={faGear} />, title: 'Settings', to: '/settings' },
         { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Get coins', to: '/getcoins' },
         ...MENU_ITEM,
-        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out',separate:true, type:'logOut'}];
-    const currentItem = currentUser ? userMenu : MENU_ITEM
-    console.log('remount', currentItem, currentUser)
+        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', separate: true, type: 'logOut' },
+    ];
+    const currentItem = currentUser ? userMenu : MENU_ITEM;
+    console.log('remount', currentItem, currentUser);
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-            
                 <Link to={routes.home} className={cx('logo')}>
                     <img src={image.logo} alt="tikTok"></img>
                 </Link>
                 <Search />
-                
+
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
